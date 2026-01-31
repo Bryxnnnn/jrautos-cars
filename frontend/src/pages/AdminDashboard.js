@@ -255,9 +255,8 @@ const AdminDashboard = () => {
       transmission: '',
       description_es: '',
       description_en: '',
-      images: '',
-      cover_image: '',
     });
+    setFormImages([]);
   };
 
   const handleAddVehicle = async (e) => {
