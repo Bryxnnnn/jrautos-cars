@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, Clock, MapPin, Car, DollarSign, FileText, Phone } from 'lucide-react';
+import { X, Clock, MapPin, Car, DollarSign, FileText, Phone } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const ChatBot = () => {
