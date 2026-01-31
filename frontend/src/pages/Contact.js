@@ -160,7 +160,7 @@ const Contact = () => {
                 className="rounded-2xl overflow-hidden border border-white/10 aspect-[16/10]"
               >
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.6!2d-100.45!3d20.58!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sLa%20Mora%2C%20Centro%2C%2076850%20Quer%C3%A9taro%2C%20Mexico!5e0!3m2!1sen!2smx!4v1700000000000!5m2!1sen!2smx"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3753.8!2d-100.1456972!3d20.1932132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d31bcdeceee893%3A0xdfdcca84b6710f7f!2sJ.R%20Autos!5e0!3m2!1sen!2smx!4v1700000000000!5m2!1sen!2smx"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
