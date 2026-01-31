@@ -432,6 +432,9 @@ async def admin_delete_image(filename: str, authorized: bool = Depends(verify_ad
 # Include the router in the main app
 app.include_router(api_router)
 
+# Serve uploaded files
+app.mount("/api/uploads", StaticFiles(directory=str(UPLOADS_DIR)), name="uploads")
+
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
