@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Plus, Edit, Trash2, LogOut, Car, Eye, EyeOff, MessageSquare, X, Save } from 'lucide-react';
@@ -35,21 +35,14 @@ const AdminDashboard = () => {
     cover_image: '',
   });
 
-  const headers = { Authorization: `Bearer ${token}` };
+  const headers = useMemo(
+    () => ({ Authorization: `Bearer ${token}` }),
+    [token]
+  );
 
-  useEffect(() => {
-    if (!authLoading && !isAuthenticated) {
-      navigate('/admin');
-    }
-  }, [isAuthenticated, authLoading, navigate]);
+  const fetchData = useCallback(async () => {
+    if (!token) return;
 
-  useEffect(() => {
-    if (token) {
-      fetchData();
-    }
-  }, [token]);
-
-  const fetchData = async () => {
     setLoading(true);
     try {
       const [vehiclesRes, contactsRes] = await Promise.all([
@@ -63,7 +56,18 @@ const AdminDashboard = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [token, headers]);
+
+  useEffect(() => {
+    if (!authLoading && !isAuthenticated) {
+      navigate('/admin');
+    }
+  }, [isAuthenticated, authLoading, navigate]);
+
+  useEffect(() => {
+    if (token) fetchData();
+  }, [token, fetchData]);
+
 
   const handleLogout = () => {
     logout();
