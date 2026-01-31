@@ -14,9 +14,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link to="/" className="inline-block mb-4">
-              <span className="font-heading text-2xl font-bold metallic-text">
-                JR Autos
-              </span>
+              <img 
+                src="https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/qi322g9c_Screenshot%202026-01-30%20192319.png" 
+                alt="JR Autos"
+                className="h-12 w-auto"
+              />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
               {t('footerText')}
