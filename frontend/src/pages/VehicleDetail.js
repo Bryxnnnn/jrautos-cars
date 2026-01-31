@@ -79,6 +79,11 @@ const vehiclesData = {
       'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/a7kyklcf_Screenshot%202026-01-30%20234745.png',
       'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/xijd17h5_Screenshot%202026-01-30%20234750.png',
       'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/ko9ej9mz_Screenshot%202026-01-30%20234755.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/2k3atull_Screenshot%202026-01-30%20234920.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/fhntl5q1_Screenshot%202026-01-30%20234930.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/ac1di55j_Screenshot%202026-01-30%20234934.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/k2wcqevb_Screenshot%202026-01-30%20234940.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/xfqe907k_Screenshot%202026-01-30%20235001.png',
     ],
   },
   4: {
