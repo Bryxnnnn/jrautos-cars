@@ -692,20 +692,11 @@ const AdminDashboard = () => {
                 />
               </div>
 
-              <div>
-                <Label className="text-gray-300 mb-2 block">
-                  URLs de Imágenes * (una por línea)
-                </Label>
-                <Textarea
-                  value={formData.images}
-                  onChange={(e) => setFormData({ ...formData, images: e.target.value })}
-                  className="bg-white/5 border-white/10 text-white resize-none font-mono text-sm"
-                  rows={5}
-                  placeholder="https://ejemplo.com/imagen1.jpg&#10;https://ejemplo.com/imagen2.jpg&#10;https://ejemplo.com/imagen3.jpg"
-                  required
-                />
-                <p className="text-gray-500 text-xs mt-1">La primera imagen será la portada</p>
-              </div>
+              <ImageUploader 
+                images={formImages} 
+                setImages={setFormImages} 
+                token={token}
+              />
 
               <div className="flex space-x-4">
                 <Button
