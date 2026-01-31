@@ -202,7 +202,15 @@ const ChatBot = () => {
                   {msg.type === 'whatsapp' && (
                     <div className="flex items-start space-x-2">
                       <div className="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0">
-                        <MessageCircle className="w-4 h-4 text-blue-400" />
+                        {/* Bot Icon */}
+                        <svg viewBox="0 0 24 24" className="w-4 h-4 text-blue-400 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M12 8V4H8" />
+                          <rect width="16" height="12" x="4" y="8" rx="2" />
+                          <path d="M2 14h2" />
+                          <path d="M20 14h2" />
+                          <path d="M15 13v2" />
+                          <path d="M9 13v2" />
+                        </svg>
                       </div>
                       <div className="space-y-2">
                         <button
