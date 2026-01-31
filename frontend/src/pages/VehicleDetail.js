@@ -182,6 +182,13 @@ const VehicleDetail = () => {
 
   return (
     <div data-testid="vehicle-detail-page" className="min-h-screen bg-[#050505] pt-24">
+      <SEO 
+        title={`${vehicle.name} ${vehicle.year}`}
+        description={`${vehicle.name} ${vehicle.year} en venta en J.R Autos Querétaro. ${vehicle.engine}, ${vehicle.transmission}. ${vehicle.description[language].substring(0, 150)}...`}
+        keywords={`${vehicle.name}, ${vehicle.year}, autos seminuevos Querétaro, ${vehicle.engine}`}
+        image={vehicle.images[0]}
+        url={`https://jrautos.com/vehicle/${vehicle.id}`}
+      />
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-8">
         {/* Back Button */}
         <Link 
