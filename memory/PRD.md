@@ -36,7 +36,8 @@ Build a modern, professional, mobile-friendly website for a car dealership named
 - ✅ Admin panel at `/admin` route for managing vehicles and messages
 - ✅ Admin password: `autos2026`
 - ✅ SEO with react-helmet-async, sitemap.xml, robots.txt
-- ✅ **Image Upload Feature**: Drag-and-drop image uploader in admin panel (replaces URL pasting)
+- ✅ **Image Upload Feature**: Drag-and-drop image uploader in admin panel
+- ✅ **FAQ Chatbot**: Bilingual chatbot with pre-written responses that leads to WhatsApp for human support
 
 ## Tech Stack
 - **Frontend**: React, Tailwind CSS, Framer Motion, React Router
