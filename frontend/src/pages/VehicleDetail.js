@@ -101,26 +101,26 @@ const VehicleDetail = () => {
   const [loading, setLoading] = useState(true);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  useEffect(() => {
-    fetchVehicle();
-  }, [id]);
+useEffect(() => {
+  fetchVehicle();
+}, [fetchVehicle]);
 
-  const fetchVehicle = async () => {
-    setLoading(true);
-    try {
-      const response = await axios.get(`${BACKEND_URL}/api/vehicles/${id}`);
-      setVehicle(response.data);
-    } catch (err) {
-      console.error('Error fetching vehicle:', err);
-      // Use fallback data
-      const fallback = fallbackVehiclesData[id];
-      if (fallback) {
-        setVehicle(fallback);
-      }
-    } finally {
-      setLoading(false);
+const fetchVehicle = useCallback(async () => {
+  setLoading(true);
+  try {
+    const response = await axios.get(`${BACKEND_URL}/api/vehicles/${id}`);
+    setVehicle(response.data);
+  } catch (err) {
+    console.error('Error fetching vehicle:', err);
+    // Use fallback data
+    const fallback = fallbackVehiclesData[id];
+    if (fallback) {
+      setVehicle(fallback);
     }
-  };
+  } finally {
+    setLoading(false);
+  }
+}, [id]);
 
   if (loading) {
     return (
