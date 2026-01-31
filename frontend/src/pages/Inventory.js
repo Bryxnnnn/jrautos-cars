@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Calendar, Fuel, Settings, Phone, ChevronDown, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { Button } from '../components/ui/button';
+import SEO from '../components/SEO';
 
 const placeholderVehicles = [
   {
