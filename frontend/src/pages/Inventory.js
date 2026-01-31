@@ -6,58 +6,59 @@ import { useLanguage } from '../context/LanguageContext';
 import { Button } from '../components/ui/button';
 import SEO from '../components/SEO';
 
-const placeholderVehicles = [
+export const vehicles = [
   {
     id: 1,
     name: 'Nissan Frontier Pro-4X',
-    year: '2015',
+    year: 2015,
     brand: 'Nissan',
     bodyType: 'Pick-up',
     mileage: '6 Cilindros',
     fuel: 'Gasolina',
-    image: 'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/ney20cob_Screenshot%202026-01-30%20230905.png',
+    image: 'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/ney20cob_Screenshot%202026-01-30%202230905.png',
   },
   {
     id: 2,
     name: 'Chevrolet Cruze LT',
-    year: '2017',
+    year: 2017,
     brand: 'Chevrolet',
     bodyType: 'Sedán',
     mileage: '4 Cilindros',
     fuel: 'Automático',
-    image: 'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/gvy2u8ym_Screenshot%202026-01-30%20233715.png',
+    image: 'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/gvy2u8ym_Screenshot%202026-01-30%202233715.png',
   },
   {
     id: 3,
     name: 'Volkswagen Golf TSI',
-    year: '2015',
+    year: 2015,
     brand: 'Volkswagen',
     bodyType: 'Hatchback',
     mileage: '4 Cilindros',
     fuel: 'Gasolina',
-    image: 'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/8myndhig_Screenshot%202026-01-30%20234739%20-%20Copy.png',
+    image: 'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/8myndhig_Screenshot%202026-01-30%202234739%20-%20Copy.png',
   },
   {
     id: 4,
     name: 'Nissan Rogue Advance',
-    year: '2016',
+    year: 2016,
     brand: 'Nissan',
     bodyType: 'SUV',
     mileage: '4 Cilindros',
     fuel: 'Gasolina',
-    image: 'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/1gpofykx_Screenshot%202026-01-30%20235826.png',
+    image: 'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/1gpofykx_Screenshot%202026-01-30%202235826.png',
   },
   {
     id: 5,
     name: 'Chevrolet Aveo LS',
-    year: '2018',
+    year: 2018,
     brand: 'Chevrolet',
     bodyType: 'Sedán',
     mileage: '4 Cilindros',
     fuel: 'Gasolina',
-    image: 'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/2kp4mvin_Screenshot%202026-01-31%20000601.png',
+    image: 'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/2kp4mvin_Screenshot%202026-01-31%202000601.png',
   },
 ];
+
 
 // Get unique values for filters
 const brands = [...new Set(placeholderVehicles.map(v => v.brand))].sort();
