@@ -1,0 +1,297 @@
+import React, { useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Phone, ArrowLeft, Calendar, Fuel, Settings, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import { Button } from '../components/ui/button';
+
+// Vehicle data with multiple images
+const vehiclesData = {
+  1: {
+    id: 1,
+    name: 'Nissan Frontier Pro-4X',
+    year: '2015',
+    engine: '6 Cilindros',
+    fuel: 'Gasolina',
+    transmission: '4x4',
+    description: {
+      es: 'Potente pickup Nissan Frontier Pro-4X con capacidad todoterreno. Equipada con motor V6, tracción 4x4, y todas las características para trabajo pesado y aventuras off-road. Interior cómodo y bien equipado.',
+      en: 'Powerful Nissan Frontier Pro-4X pickup with off-road capability. Equipped with V6 engine, 4x4 drive, and all features for heavy work and off-road adventures. Comfortable and well-equipped interior.'
+    },
+    images: [
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/lmrajlxk_IMG_9598.png',
+    ],
+  },
+  2: {
+    id: 2,
+    name: 'Chevrolet Cruze LT',
+    year: '2017',
+    engine: '4 Cilindros',
+    fuel: 'Gasolina',
+    transmission: 'Automático',
+    description: {
+      es: 'Elegante sedán Chevrolet Cruze LT con excelente rendimiento de combustible. Transmisión automática suave, interior espacioso con tecnología moderna. Perfecto para uso diario y viajes largos.',
+      en: 'Elegant Chevrolet Cruze LT sedan with excellent fuel efficiency. Smooth automatic transmission, spacious interior with modern technology. Perfect for daily use and long trips.'
+    },
+    images: [
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/bbs6jamq_IMG_9599.png',
+    ],
+  },
+  3: {
+    id: 3,
+    name: 'Volkswagen Golf TSI',
+    year: '2015',
+    engine: '4 Cilindros Turbo',
+    fuel: 'Gasolina',
+    transmission: 'Manual',
+    description: {
+      es: 'Icónico Volkswagen Golf TSI con motor turbo eficiente y deportivo. Manejo preciso, interior de alta calidad alemana, y excelente economía de combustible. Un clásico que nunca pasa de moda.',
+      en: 'Iconic Volkswagen Golf TSI with efficient and sporty turbo engine. Precise handling, high-quality German interior, and excellent fuel economy. A classic that never goes out of style.'
+    },
+    images: [
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/nsvorm2f_IMG_9600.png',
+    ],
+  },
+  4: {
+    id: 4,
+    name: 'Nissan Rogue Advance',
+    year: '2016',
+    engine: '4 Cilindros',
+    fuel: 'Gasolina',
+    transmission: 'Automático CVT',
+    description: {
+      es: 'SUV familiar Nissan Rogue Advance con amplio espacio interior. Transmisión CVT suave, excelente visibilidad, y todas las características de seguridad modernas. Ideal para familias activas.',
+      en: 'Family SUV Nissan Rogue Advance with ample interior space. Smooth CVT transmission, excellent visibility, and all modern safety features. Ideal for active families.'
+    },
+    images: [
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/88pzb5dk_IMG_9601.png',
+    ],
+  },
+  5: {
+    id: 5,
+    name: 'Chevrolet Aveo LS',
+    year: '2018',
+    engine: '4 Cilindros',
+    fuel: 'Gasolina',
+    transmission: 'Manual',
+    description: {
+      es: 'Compacto y económico Chevrolet Aveo LS, perfecto para la ciudad. Bajo consumo de combustible, fácil de estacionar, y costos de mantenimiento reducidos. Excelente opción para primer auto.',
+      en: 'Compact and economical Chevrolet Aveo LS, perfect for the city. Low fuel consumption, easy to park, and reduced maintenance costs. Excellent choice for a first car.'
+    },
+    images: [
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/k0lzzgga_IMG_9602.png',
+    ],
+  },
+};
+
+const VehicleDetail = () => {
+  const { id } = useParams();
+  const { language, t } = useLanguage();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const vehicle = vehiclesData[id];
+  
+  if (!vehicle) {
+    return (
+      <div className="min-h-screen bg-[#050505] pt-24 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl text-white mb-4">
+            {language === 'es' ? 'Vehículo no encontrado' : 'Vehicle not found'}
+          </h1>
+          <Link to="/inventory">
+            <Button className="rounded-full bg-white text-black hover:bg-gray-200">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              {language === 'es' ? 'Volver al Inventario' : 'Back to Inventory'}
+            </Button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => 
+      prev === vehicle.images.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => 
+      prev === 0 ? vehicle.images.length - 1 : prev - 1
+    );
+  };
+
+  return (
+    <div data-testid="vehicle-detail-page" className="min-h-screen bg-[#050505] pt-24">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-8">
+        {/* Back Button */}
+        <Link 
+          to="/inventory" 
+          data-testid="back-to-inventory"
+          className="inline-flex items-center text-gray-400 hover:text-white transition-colors mb-8"
+        >
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          {language === 'es' ? 'Volver al Inventario' : 'Back to Inventory'}
+        </Link>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Left Side - Image Gallery */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {/* Main Image */}
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-900 mb-4">
+              <img
+                src={vehicle.images[currentImageIndex]}
+                alt={vehicle.name}
+                className="w-full h-full object-cover"
+              />
+              
+              {/* Navigation Arrows (show only if multiple images) */}
+              {vehicle.images.length > 1 && (
+                <>
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
+                </>
+              )}
+              
+              {/* Image Counter */}
+              {vehicle.images.length > 1 && (
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                  {currentImageIndex + 1} / {vehicle.images.length}
+                </div>
+              )}
+            </div>
+
+            {/* Thumbnail Gallery */}
+            {vehicle.images.length > 1 && (
+              <div className="flex gap-2 overflow-x-auto pb-2">
+                {vehicle.images.map((img, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden border-2 transition-colors ${
+                      index === currentImageIndex 
+                        ? 'border-white' 
+                        : 'border-transparent hover:border-white/50'
+                    }`}
+                  >
+                    <img src={img} alt="" className="w-full h-full object-cover" />
+                  </button>
+                ))}
+              </div>
+            )}
+          </motion.div>
+
+          {/* Right Side - Details */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            {/* Title */}
+            <h1 className="font-heading text-3xl md:text-4xl font-bold text-white mb-2">
+              {vehicle.name}
+            </h1>
+            <p className="text-accent text-xl mb-6">{t('contactForPrice')}</p>
+
+            {/* Specs Grid */}
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              <div className="bg-white/5 border border-white/10 rounded-xl p-4">
+                <div className="flex items-center space-x-3">
+                  <Calendar className="w-5 h-5 text-accent" />
+                  <div>
+                    <p className="text-gray-400 text-xs">{language === 'es' ? 'Año' : 'Year'}</p>
+                    <p className="text-white font-semibold">{vehicle.year}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-xl p-4">
+                <div className="flex items-center space-x-3">
+                  <Settings className="w-5 h-5 text-accent" />
+                  <div>
+                    <p className="text-gray-400 text-xs">{language === 'es' ? 'Motor' : 'Engine'}</p>
+                    <p className="text-white font-semibold">{vehicle.engine}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-xl p-4">
+                <div className="flex items-center space-x-3">
+                  <Fuel className="w-5 h-5 text-accent" />
+                  <div>
+                    <p className="text-gray-400 text-xs">{language === 'es' ? 'Combustible' : 'Fuel'}</p>
+                    <p className="text-white font-semibold">{vehicle.fuel}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-xl p-4">
+                <div className="flex items-center space-x-3">
+                  <Settings className="w-5 h-5 text-accent" />
+                  <div>
+                    <p className="text-gray-400 text-xs">{language === 'es' ? 'Transmisión' : 'Transmission'}</p>
+                    <p className="text-white font-semibold">{vehicle.transmission}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Description */}
+            <div className="mb-8">
+              <h2 className="font-heading text-xl font-semibold text-white mb-3">
+                {language === 'es' ? 'Descripción' : 'Description'}
+              </h2>
+              <p className="text-gray-400 leading-relaxed">
+                {vehicle.description[language]}
+              </p>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="space-y-4">
+              <a href="tel:+524481085706" className="block">
+                <Button 
+                  data-testid="vehicle-call-btn"
+                  className="w-full rounded-full bg-white text-black hover:bg-gray-200 py-6 font-semibold text-lg shadow-[0_0_30px_rgba(255,255,255,0.15)]"
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  {t('callNow')} - +52 448 108 5706
+                </Button>
+              </a>
+              <a 
+                href={`https://wa.me/524481085706?text=${encodeURIComponent(
+                  language === 'es' 
+                    ? `Hola, me interesa el ${vehicle.name} ${vehicle.year}. ¿Está disponible?`
+                    : `Hi, I'm interested in the ${vehicle.name} ${vehicle.year}. Is it available?`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Button 
+                  data-testid="vehicle-whatsapp-btn"
+                  variant="outline"
+                  className="w-full rounded-full border-green-500/50 bg-green-500/10 text-green-400 hover:bg-green-500/20 py-6 font-semibold"
+                >
+                  WhatsApp
+                </Button>
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default VehicleDetail;
