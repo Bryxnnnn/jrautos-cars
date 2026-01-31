@@ -300,12 +300,15 @@ const AdminDashboard = () => {
 
   const handleUpdateVehicle = async (e) => {
     e.preventDefault();
+    if (formImages.length === 0) {
+      alert('Por favor, sube al menos una imagen');
+      return;
+    }
     try {
-      const imagesArray = formData.images.split('\n').filter(url => url.trim());
       const payload = {
         ...formData,
-        images: imagesArray,
-        cover_image: formData.cover_image || imagesArray[0] || '',
+        images: formImages,
+        cover_image: formImages[0] || '',
       };
       await axios.put(`${BACKEND_URL}/api/admin/vehicles/${editingVehicle.id}`, payload, { headers });
       setShowEditModal(false);
