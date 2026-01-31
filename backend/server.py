@@ -381,6 +381,54 @@ async def admin_get_contacts(authorized: bool = Depends(verify_admin_token)):
     return messages
 
 
+@api_router.post("/admin/upload")
+async def admin_upload_image(
+    file: UploadFile = File(...),
+    authorized: bool = Depends(verify_admin_token)
+):
+    """Upload an image file (admin only)"""
+    # Validate file type
+    allowed_types = ['image/jpeg', 'image/png', 'image/webp', 'image/gif']
+    if file.content_type not in allowed_types:
+        raise HTTPException(status_code=400, detail="Invalid file type. Only JPEG, PNG, WebP, and GIF are allowed.")
+    
+    # Generate unique filename
+    file_ext = file.filename.split('.')[-1] if '.' in file.filename else 'jpg'
+    unique_filename = f"{uuid.uuid4()}.{file_ext}"
+    file_path = UPLOADS_DIR / unique_filename
+    
+    # Save file
+    try:
+        async with aiofiles.open(file_path, 'wb') as out_file:
+            content = await file.read()
+            await out_file.write(content)
+        
+        # Return the URL path for the image
+        image_url = f"/api/uploads/{unique_filename}"
+        logger.info(f"Image uploaded: {unique_filename}")
+        return {"url": image_url, "filename": unique_filename}
+    except Exception as e:
+        logger.error(f"Failed to upload image: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to upload image")
+
+
+@api_router.delete("/admin/upload/{filename}")
+async def admin_delete_image(filename: str, authorized: bool = Depends(verify_admin_token)):
+    """Delete an uploaded image (admin only)"""
+    file_path = UPLOADS_DIR / filename
+    
+    if not file_path.exists():
+        raise HTTPException(status_code=404, detail="Image not found")
+    
+    try:
+        file_path.unlink()
+        logger.info(f"Image deleted: {filename}")
+        return {"message": "Image deleted successfully"}
+    except Exception as e:
+        logger.error(f"Failed to delete image: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to delete image")
+
+
 # Include the router in the main app
 app.include_router(api_router)
 
