@@ -15,11 +15,14 @@ const vehiclesData = {
     fuel: 'Gasolina',
     transmission: '4x4',
     description: {
-      es: 'Potente pickup Nissan Frontier Pro-4X con capacidad todoterreno. Equipada con motor V6, tracción 4x4, y todas las características para trabajo pesado y aventuras off-road. Interior cómodo y bien equipado.',
-      en: 'Powerful Nissan Frontier Pro-4X pickup with off-road capability. Equipped with V6 engine, 4x4 drive, and all features for heavy work and off-road adventures. Comfortable and well-equipped interior.'
+      es: 'Potente pickup Nissan Frontier Pro-4X con capacidad todoterreno. Factura de Seminuevo, lista para emplacar en cualquier estado. Equipada con motor V6, tracción 4x4, y todas las características para trabajo pesado y aventuras off-road. Cualquier prueba mecánica o legal.',
+      en: 'Powerful Nissan Frontier Pro-4X pickup with off-road capability. Clean title, ready to register in any state. Equipped with V6 engine, 4x4 drive, and all features for heavy work and off-road adventures. Any mechanical or legal inspection welcome.'
     },
     images: [
-      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/lmrajlxk_IMG_9598.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/vibds0pt_Screenshot%202026-01-30%20230905.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/3c69n61d_Screenshot%202026-01-30%20230914.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/54i14ufx_Screenshot%202026-01-30%20230919.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/r0d4wbx8_Screenshot%202026-01-30%20230924.png',
     ],
   },
   2: {
