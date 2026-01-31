@@ -94,11 +94,14 @@ const vehiclesData = {
     fuel: 'Gasolina',
     transmission: 'Automático CVT',
     description: {
-      es: 'SUV familiar Nissan Rogue Advance con amplio espacio interior. Transmisión CVT suave, excelente visibilidad, y todas las características de seguridad modernas. Ideal para familias activas.',
-      en: 'Family SUV Nissan Rogue Advance with ample interior space. Smooth CVT transmission, excellent visibility, and all modern safety features. Ideal for active families.'
+      es: 'SUV familiar Nissan Rogue Advance 2016 con amplio espacio interior. Factura y pedimento de aduanas, lista para emplacar en cualquier estado. Transmisión CVT suave, 4 cilindros, excelente visibilidad y características de seguridad modernas. Cualquier prueba mecánica o legal.',
+      en: 'Family SUV Nissan Rogue Advance 2016 with ample interior space. Title and customs orders, ready to register in any state. Smooth CVT transmission, 4 cylinders, excellent visibility and modern safety features. Any mechanical or legal inspection welcome.'
     },
     images: [
-      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/88pzb5dk_IMG_9601.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/1gpofykx_Screenshot%202026-01-30%20235826.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/8b8ahdqz_Screenshot%202026-01-30%20235832.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/azcbdpv6_Screenshot%202026-01-30%20235838.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/zihjfhcw_Screenshot%202026-01-30%20235844.png',
     ],
   },
   5: {

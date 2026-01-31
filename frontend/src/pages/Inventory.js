@@ -44,7 +44,7 @@ const placeholderVehicles = [
     bodyType: 'SUV',
     mileage: '4 Cilindros',
     fuel: 'Gasolina',
-    image: 'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/88pzb5dk_IMG_9601.png',
+    image: 'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/1gpofykx_Screenshot%202026-01-30%20235826.png',
   },
   {
     id: 5,
