@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Plus, Edit, Trash2, LogOut, Car, Eye, EyeOff, MessageSquare, X, Save } from 'lucide-react';
+import { Plus, Edit, Trash2, LogOut, Car, Eye, EyeOff, MessageSquare, X, Save, Upload, Image as ImageIcon } from 'lucide-react';
 import { useAdmin } from '../context/AdminContext';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
@@ -10,6 +10,177 @@ import { Label } from '../components/ui/label';
 import axios from 'axios';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
+// Image Uploader Component
+const ImageUploader = ({ images, setImages, token }) => {
+  const [uploading, setUploading] = useState(false);
+  const [dragActive, setDragActive] = useState(false);
+
+  const handleFiles = async (files) => {
+    if (!files || files.length === 0) return;
+    
+    setUploading(true);
+    const newImages = [...images];
+    
+    for (const file of files) {
+      if (!file.type.startsWith('image/')) continue;
+      
+      const formData = new FormData();
+      formData.append('file', file);
+      
+      try {
+        const res = await axios.post(`${BACKEND_URL}/api/admin/upload`, formData, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+        newImages.push(`${BACKEND_URL}${res.data.url}`);
+      } catch (err) {
+        console.error('Upload failed:', err);
+        alert(`Error al subir: ${file.name}`);
+      }
+    }
+    
+    setImages(newImages);
+    setUploading(false);
+  };
+
+  const handleDrag = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.type === 'dragenter' || e.type === 'dragover') {
+      setDragActive(true);
+    } else if (e.type === 'dragleave') {
+      setDragActive(false);
+    }
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragActive(false);
+    handleFiles(e.dataTransfer.files);
+  };
+
+  const handleFileInput = (e) => {
+    handleFiles(e.target.files);
+  };
+
+  const removeImage = (index) => {
+    setImages(images.filter((_, i) => i !== index));
+  };
+
+  const moveImage = (index, direction) => {
+    const newImages = [...images];
+    const newIndex = index + direction;
+    if (newIndex < 0 || newIndex >= newImages.length) return;
+    [newImages[index], newImages[newIndex]] = [newImages[newIndex], newImages[index]];
+    setImages(newImages);
+  };
+
+  return (
+    <div className="space-y-4">
+      <Label className="text-gray-300 block">Imágenes del Vehículo *</Label>
+      
+      {/* Upload Zone */}
+      <div
+        onDragEnter={handleDrag}
+        onDragLeave={handleDrag}
+        onDragOver={handleDrag}
+        onDrop={handleDrop}
+        className={`border-2 border-dashed rounded-xl p-8 text-center transition-colors ${
+          dragActive 
+            ? 'border-green-500 bg-green-500/10' 
+            : 'border-white/20 hover:border-white/40'
+        }`}
+      >
+        <input
+          type="file"
+          accept="image/*"
+          multiple
+          onChange={handleFileInput}
+          className="hidden"
+          id="image-upload"
+          disabled={uploading}
+        />
+        <label htmlFor="image-upload" className="cursor-pointer block">
+          {uploading ? (
+            <div className="flex flex-col items-center">
+              <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin mb-3" />
+              <p className="text-gray-400">Subiendo imágenes...</p>
+            </div>
+          ) : (
+            <div className="flex flex-col items-center">
+              <Upload className="w-10 h-10 text-gray-500 mb-3" />
+              <p className="text-gray-300 mb-1">Arrastra imágenes aquí o haz clic para seleccionar</p>
+              <p className="text-gray-500 text-sm">JPG, PNG, WebP (máx. varios archivos)</p>
+            </div>
+          )}
+        </label>
+      </div>
+
+      {/* Image Preview Grid */}
+      {images.length > 0 && (
+        <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
+          {images.map((img, index) => (
+            <div key={index} className="relative group aspect-square">
+              <img
+                src={img}
+                alt={`Preview ${index + 1}`}
+                className={`w-full h-full object-cover rounded-lg ${
+                  index === 0 ? 'ring-2 ring-green-500' : ''
+                }`}
+              />
+              {index === 0 && (
+                <span className="absolute top-1 left-1 bg-green-500 text-white text-xs px-2 py-0.5 rounded-full">
+                  Portada
+                </span>
+              )}
+              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center gap-1">
+                {index > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => moveImage(index, -1)}
+                    className="p-1.5 bg-white/20 rounded hover:bg-white/40 text-white text-xs"
+                    title="Mover izquierda"
+                  >
+                    ←
+                  </button>
+                )}
+                <button
+                  type="button"
+                  onClick={() => removeImage(index)}
+                  className="p-1.5 bg-red-500/80 rounded hover:bg-red-500 text-white"
+                  title="Eliminar"
+                >
+                  <Trash2 className="w-4 h-4" />
+                </button>
+                {index < images.length - 1 && (
+                  <button
+                    type="button"
+                    onClick={() => moveImage(index, 1)}
+                    className="p-1.5 bg-white/20 rounded hover:bg-white/40 text-white text-xs"
+                    title="Mover derecha"
+                  >
+                    →
+                  </button>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+      
+      {images.length === 0 && (
+        <p className="text-gray-500 text-sm text-center">
+          <ImageIcon className="w-5 h-5 inline mr-1" />
+          No hay imágenes. La primera imagen será la portada.
+        </p>
+      )}
+    </div>
+  );
+};
 
 const AdminDashboard = () => {
   const { token, logout, isAuthenticated, loading: authLoading } = useAdmin();
