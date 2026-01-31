@@ -293,9 +293,8 @@ const AdminDashboard = () => {
       transmission: vehicle.transmission,
       description_es: vehicle.description_es,
       description_en: vehicle.description_en,
-      images: vehicle.images.join('\n'),
-      cover_image: vehicle.cover_image,
     });
+    setFormImages(vehicle.images || []);
     setShowEditModal(true);
   };
 
