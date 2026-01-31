@@ -71,11 +71,14 @@ const vehiclesData = {
     fuel: 'Gasolina',
     transmission: 'Manual',
     description: {
-      es: 'Icónico Volkswagen Golf TSI con motor turbo eficiente y deportivo. Manejo preciso, interior de alta calidad alemana, y excelente economía de combustible. Un clásico que nunca pasa de moda.',
-      en: 'Iconic Volkswagen Golf TSI with efficient and sporty turbo engine. Precise handling, high-quality German interior, and excellent fuel economy. A classic that never goes out of style.'
+      es: 'Icónico Volkswagen Golf TSI 2015 con motor turbo eficiente y deportivo. Factura de Seminuevo, baja de CDMX, listo para emplacar en cualquier estado. 4 cilindros, manejo preciso, interior de alta calidad alemana. Cualquier prueba mecánica o legal.',
+      en: 'Iconic 2015 Volkswagen Golf TSI with efficient and sporty turbo engine. Clean title from CDMX, ready to register in any state. 4 cylinders, precise handling, high-quality German interior. Any mechanical or legal inspection welcome.'
     },
     images: [
-      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/nsvorm2f_IMG_9600.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/8myndhig_Screenshot%202026-01-30%20234739%20-%20Copy.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/a7kyklcf_Screenshot%202026-01-30%20234745.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/xijd17h5_Screenshot%202026-01-30%20234750.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/ko9ej9mz_Screenshot%202026-01-30%20234755.png',
     ],
   },
   4: {
