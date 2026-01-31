@@ -1,0 +1,102 @@
+{
+  "timestamp": "2026-01-31T02:11:58.963764",
+  "total_tests": 7,
+  "passed_tests": 7,
+  "success_rate": 100.0,
+  "results": [
+    {
+      "test_name": "Root API",
+      "endpoint": "api/",
+      "method": "GET",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "message": "J.R Autos API - Welcome!"
+      }
+    },
+    {
+      "test_name": "Health Check",
+      "endpoint": "api/health",
+      "method": "GET",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "status": "healthy",
+        "service": "J.R Autos API"
+      }
+    },
+    {
+      "test_name": "Contact Form Submission",
+      "endpoint": "api/contact",
+      "method": "POST",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "id": "967497d9-3603-4b02-8c02-9164b68819dc",
+        "name": "Test User",
+        "email": "test@example.com",
+        "phone": "+52 448 000 0000",
+        "message": "This is a test message from automated testing",
+        "created_at": "2026-01-31T02:11:58.776296Z"
+      }
+    },
+    {
+      "test_name": "Get Contact Messages",
+      "endpoint": "api/contact",
+      "method": "GET",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "967497d9-3603-4b02-8c02-9164b68819dc",
+          "name": "Test User",
+          "email": "test@example.com",
+          "phone": "+52 448 000 0000",
+          "message": "This is a test message from automated testing",
+          "created_at": "2026-01-31T02:11:58.776296Z"
+        }
+      ]
+    },
+    {
+      "test_name": "Get Vehicles",
+      "endpoint": "api/vehicles",
+      "method": "GET",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": []
+    },
+    {
+      "test_name": "Create Status Check",
+      "endpoint": "api/status",
+      "method": "POST",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "id": "8ba73d4c-1330-472b-b3d9-81a6941a10b2",
+        "client_name": "test_client_021158",
+        "timestamp": "2026-01-31T02:11:58.908534Z"
+      }
+    },
+    {
+      "test_name": "Get Status Checks",
+      "endpoint": "api/status",
+      "method": "GET",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "8ba73d4c-1330-472b-b3d9-81a6941a10b2",
+          "client_name": "test_client_021158",
+          "timestamp": "2026-01-31T02:11:58.908534Z"
+        }
+      ]
+    }
+  ]
+}
