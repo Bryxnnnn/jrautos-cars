@@ -202,9 +202,8 @@ const AdminDashboard = () => {
     transmission: '',
     description_es: '',
     description_en: '',
-    images: '',
-    cover_image: '',
   });
+  const [formImages, setFormImages] = useState([]);
 
   const headers = useMemo(
     () => ({ Authorization: `Bearer ${token}` }),
