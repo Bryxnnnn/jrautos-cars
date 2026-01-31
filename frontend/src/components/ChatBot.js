@@ -155,7 +155,11 @@ const ChatBot = () => {
             <div className="bg-gradient-to-r from-blue-600 to-blue-500 p-4">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                  <MessageCircle className="w-5 h-5 text-white" />
+                  {/* Headset Icon */}
+                  <svg viewBox="0 0 24 24" className="w-5 h-5 text-white fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+                  </svg>
                 </div>
                 <div>
                   <h3 className="text-white font-semibold">J.R Autos</h3>
