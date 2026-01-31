@@ -94,6 +94,12 @@ const Contact = () => {
 
   return (
     <div data-testid="contact-page" className="min-h-screen bg-[#050505] pt-24">
+      <SEO 
+        title="Contacto"
+        description="Contáctanos en J.R Autos Querétaro. ☎️ +52 448 108 5706. Ubicación: La Mora, Centro, 76850, Querétaro. Horario: Sábados 8:30 AM. WhatsApp disponible."
+        keywords="contacto JR Autos, teléfono auto broker Querétaro, ubicación JR Autos, WhatsApp autos Querétaro"
+        url="https://jrautos.com/contact"
+      />
       {/* Header */}
       <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
