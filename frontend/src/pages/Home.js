@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Phone, MapPin, Star, Car, Shield, HandshakeIcon, CreditCard } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { Button } from '../components/ui/button';
+import SEO from '../components/SEO';
 
 const placeholderCars = [
   {
