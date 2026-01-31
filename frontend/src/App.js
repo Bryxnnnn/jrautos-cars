@@ -6,6 +6,7 @@ import { AdminProvider } from "./context/AdminContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
+import ChatBot from "./components/ChatBot";
 import Home from "./pages/Home";
 import Inventory from "./pages/Inventory";
 import Services from "./pages/Services";
@@ -41,6 +42,7 @@ function App() {
                   </Routes>
                   <Footer />
                   <WhatsAppButton />
+                  <ChatBot />
                 </>
               } />
             </Routes>
