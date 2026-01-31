@@ -24,6 +24,12 @@ const About = () => {
 
   return (
     <div data-testid="about-page" className="min-h-screen bg-[#050505] pt-24">
+      <SEO 
+        title="Nosotros - Sobre J.R Autos"
+        description="Conoce J.R Autos, tu auto broker de confianza en Querétaro. Más de 5 años de experiencia, 100+ clientes satisfechos. ⭐ 5.0 Google Rating."
+        keywords="sobre JR Autos, historia JR Autos, auto broker confianza Querétaro, agencia autos seminuevos"
+        url="https://jrautos.com/about"
+      />
       {/* Header */}
       <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
