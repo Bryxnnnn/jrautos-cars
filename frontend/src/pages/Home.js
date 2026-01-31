@@ -138,7 +138,7 @@ const Home = () => {
                 {...fadeInUp}
                 transition={{ delay: index * 0.1 }}
               >
-                <Link to="/inventory" className="group block">
+                <Link to={`/vehicle/${car.id}`} className="group block">
                   <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-gray-900">
                     <img 
                       src={car.image} 
