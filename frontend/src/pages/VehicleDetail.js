@@ -135,6 +135,9 @@ const vehiclesData = {
       'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/toi5viil_Screenshot%202026-01-31%20000750.png',
       'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/g1gbtjyo_Screenshot%202026-01-31%20000755.png',
       'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/gdd8rnfw_Screenshot%202026-01-31%20000802.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/9fg56jhf_Screenshot%202026-01-31%20000910.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/ts6bohd8_Screenshot%202026-01-31%20000914.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/azf2vchc_Screenshot%202026-01-31%20000919.png',
     ],
   },
 };
