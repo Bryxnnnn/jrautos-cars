@@ -39,10 +39,16 @@ const Contact = () => {
     setStatus('sending');
 
     try {
-      await axios.post(`${BACKEND_URL}/api/contact`, formData);
-      setStatus('success');
-      setFormData({ name: '', email: '', phone: '', message: '' });
-      setTimeout(() => setStatus('idle'), 5000);
+      const response = await axios.post(`${BACKEND_URL}/api/contact`, formData);
+      // Only show success if the response contains the saved record with an ID
+      if (response.data && response.data.id) {
+        console.log('Contact message saved successfully:', response.data.id);
+        setStatus('success');
+        setFormData({ name: '', email: '', phone: '', message: '' });
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        throw new Error('Invalid response - message may not have been saved');
+      }
     } catch (error) {
       console.error('Error sending message:', error);
       setStatus('error');
