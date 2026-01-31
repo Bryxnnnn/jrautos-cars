@@ -122,14 +122,21 @@ const ChatBot = () => {
       <motion.button
         data-testid="chatbot-toggle"
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-24 right-6 z-50 w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
+        className="fixed bottom-24 right-6 z-50 w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full shadow-lg flex items-center justify-center"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.7, type: 'spring', stiffness: 200 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
       >
         {isOpen ? (
           <X className="w-6 h-6 text-white" />
         ) : (
-          <MessageCircle className="w-6 h-6 text-white" />
+          /* Headset/Support Icon */
+          <svg viewBox="0 0 24 24" className="w-7 h-7 text-white fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+            <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+          </svg>
         )}
       </motion.button>
 
