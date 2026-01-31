@@ -17,7 +17,7 @@ const Footer = () => {
               <img 
                 src="https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/qi322g9c_Screenshot%202026-01-30%20192319.png" 
                 alt="JR Autos"
-                className="h-12 w-auto"
+                className="w-36 h-auto object-contain"
               />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
