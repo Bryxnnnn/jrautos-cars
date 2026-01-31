@@ -11,23 +11,13 @@ Build a modern, professional, mobile-friendly website for a car dealership named
 - **Phone**: +52 448 108 5706
 - **Google Rating**: 5.0 stars
 
-## User Personas
-1. **Car Buyers**: Local customers looking to purchase quality pre-owned vehicles
-2. **Lease Seekers**: Individuals interested in flexible car leasing options
-3. **Business Inquiries**: Potential partners or financing institutions
-
-## Core Requirements (Static)
-- Professional dark-themed design matching logo colors
-- Bilingual support (Spanish/English)
-- Mobile-responsive layout
-- Contact form with database storage
-- WhatsApp integration for quick messaging
-- Google Maps for location
-- SEO-friendly structure
+## Admin Panel Access
+- **URL**: `/admin`
+- **Password**: `autos2026`
 
 ## What's Been Implemented
 
-### January 31, 2026 - Initial Build
+### January 31, 2026
 - ✅ Complete website with 5 pages: Home, Inventory, Services, About, Contact
 - ✅ Dark theme with charcoal background and silver metallic accents
 - ✅ Bilingual language toggle (ES/EN) with full translations
@@ -44,27 +34,31 @@ Build a modern, professional, mobile-friendly website for a car dealership named
 - ✅ Vehicle detail page with multi-image gallery
 - ✅ Inventory filtering by brand and body type
 - ✅ Admin panel at `/admin` route for managing vehicles and messages
-- ✅ Admin password set to `autos2026`
+- ✅ Admin password: `autos2026`
 - ✅ SEO with react-helmet-async, sitemap.xml, robots.txt
+- ✅ **Image Upload Feature**: Drag-and-drop image uploader in admin panel (replaces URL pasting)
 
 ## Tech Stack
 - **Frontend**: React, Tailwind CSS, Framer Motion, React Router
-- **Backend**: FastAPI, Motor (async MongoDB), Pydantic
+- **Backend**: FastAPI, Motor (async MongoDB), Pydantic, aiofiles
 - **Database**: MongoDB
 - **Integrations**: Resend (email notifications)
-- **Fonts**: Custom fonts for branding
 
-## Admin Panel Access
-- **URL**: `/admin`
-- **Password**: `autos2026`
+## Key API Endpoints
+- `POST /api/admin/login` - Admin authentication
+- `GET /api/vehicles` - List all vehicles
+- `POST /api/vehicles` - Create vehicle (admin)
+- `GET /api/vehicles/{id}` - Get single vehicle
+- `PUT /api/vehicles/{id}` - Update vehicle (admin)
+- `DELETE /api/vehicles/{id}` - Delete vehicle (admin)
+- `POST /api/contact` - Submit contact form
+- `GET /api/contact-messages` - List messages (admin)
+- `POST /api/admin/upload` - Upload vehicle image (admin)
+- `GET /api/uploads/{filename}` - Serve uploaded images
 
 ## Prioritized Backlog
 
-### P0 (Critical)
-- ✅ All critical features implemented
-
 ### P1 (High Priority)
-- [ ] Build image upload feature in admin panel (currently uses URL pasting)
 - [ ] Dynamic sitemap generation for SEO
 
 ### P2 (Medium Priority)
@@ -77,18 +71,3 @@ Build a modern, professional, mobile-friendly website for a car dealership named
 - [ ] Add blog/news section
 - [ ] Add vehicle comparison feature
 - [ ] Add financing calculator
-
-## Key API Endpoints
-- `POST /api/admin/login` - Admin authentication
-- `GET /api/vehicles` - List all vehicles
-- `POST /api/vehicles` - Create vehicle (admin)
-- `GET /api/vehicles/{id}` - Get single vehicle
-- `PUT /api/vehicles/{id}` - Update vehicle (admin)
-- `DELETE /api/vehicles/{id}` - Delete vehicle (admin)
-- `POST /api/contact` - Submit contact form
-- `GET /api/contact-messages` - List messages (admin)
-
-## Next Tasks
-1. Build direct image upload feature for admin panel
-2. Generate dynamic sitemap with vehicle URLs
-3. Add price field to vehicle model
