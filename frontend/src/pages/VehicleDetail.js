@@ -39,15 +39,18 @@ const vehiclesData = {
     id: 2,
     name: 'Chevrolet Cruze LT',
     year: '2017',
-    engine: '4 Cilindros',
+    engine: '4 Cilindros Turbo',
     fuel: 'Gasolina',
     transmission: 'Automático',
     description: {
-      es: 'Elegante sedán Chevrolet Cruze LT con excelente rendimiento de combustible. Transmisión automática suave, interior espacioso con tecnología moderna. Perfecto para uso diario y viajes largos.',
-      en: 'Elegant Chevrolet Cruze LT sedan with excellent fuel efficiency. Smooth automatic transmission, spacious interior with modern technology. Perfect for daily use and long trips.'
+      es: 'Elegante sedán Chevrolet Cruze LT 2017 con transmisión automática. Factura original, un solo dueño. Motor turbo eficiente, interior espacioso con tecnología moderna. Listo para cualquier prueba mecánica o legal. Perfecto para uso diario y viajes largos.',
+      en: 'Elegant 2017 Chevrolet Cruze LT sedan with automatic transmission. Original title, single owner. Efficient turbo engine, spacious interior with modern technology. Ready for any mechanical or legal inspection. Perfect for daily use and long trips.'
     },
     images: [
-      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/bbs6jamq_IMG_9599.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/gvy2u8ym_Screenshot%202026-01-30%20233715.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/1ogsv9r9_Screenshot%202026-01-30%20233732.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/o5kwujau_Screenshot%202026-01-30%20233739.png',
+      'https://customer-assets.emergentagent.com/job_carmex-queretary/artifacts/okh2i4zf_Screenshot%202026-01-30%20233745.png',
     ],
   },
   3: {
